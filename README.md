@@ -1,4 +1,24 @@
 ltur-notifier
-=============
+================
 
-script that scrapes ltur for bahn prices and sends a Pushover notification when prices drop to a specified value
+Receive a Pushover notification to your Android or iPhone 
+if bahn prices at ltur reach the maximum you're willing to pay.
+
+Setup
+-------
+
+Get your Pushover user token from https://pushover.net/ and enter it into config.py.  
+Set up a cronjob for ltur-notifer.py, e.g. 
+    
+    0 */5 * * * <INSERT_FULL_PATH_TO_PYTHON>/python <INSERT_FULL_PATH_TO_REPOSITORY>/ltur-notifier.py
+
+to run the script every 5 hours.
+
+Author
+-------
+Priska Herger <priska@23bit.net>  
+
+License
+-------
+License: [GNU GPLv3][1]
+[1]: http://www.gnu.org/licenses/gpl.html
