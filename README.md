@@ -2,7 +2,7 @@ ltur-notifier
 ================
 
 Receive a Pushover notification to your Android or iPhone 
-if bahn prices at ltur reach the maximum you're willing to pay.
+if bahn prices at ltur drop to the maximum you're willing to pay.
 
 Setup
 -------
