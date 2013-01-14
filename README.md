@@ -8,7 +8,7 @@ Setup
 -------
 
 Get your Pushover user token from https://pushover.net/ and enter it into config.py.  
-Set up a cronjob for ltur-notifer.py, e.g. 
+Specify your traveling data in config.py as well. Then set up a cronjob for ltur-notifer.py, e.g. 
     
     0 */5 * * * <INSERT_FULL_PATH_TO_PYTHON>/python <INSERT_FULL_PATH_TO_REPOSITORY>/ltur-notifier.py
 
