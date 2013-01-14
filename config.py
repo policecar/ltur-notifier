@@ -6,7 +6,7 @@ from_city = 'Berlin Hbf'
 to_city = 'München Hbf'
 on_date = '21.01.2013'
 at_time = '21:12'
-max_price = 90.0
+max_price = 40.0
 
 # ltur's Bahn webpage
 url = 'http://www.ltur.com/de/bahn.html?omnin=DB-DE'
