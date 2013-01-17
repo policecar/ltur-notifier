@@ -16,11 +16,10 @@ Specify your traveling data in config.py as well. Then set up a cronjob for ltur
 
     $ crontab -e
 
-e.g. insert the following line
+e.g. insert the following line to run the script every 5 hours
     
     0 */5 * * * <INSERT_FULL_PATH_TO_PYTHON>/python <INSERT_FULL_PATH_TO_REPOSITORY>/ltur-notifier.py
 
-to run the script every 5 hours.
 
 Author
 -------
