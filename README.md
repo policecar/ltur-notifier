@@ -23,7 +23,7 @@ e.g. insert the following line to run the script every 5 hours
 
 Author
 -------
-Priska Herger <priska@23bit.net>  
+Priska Herger
 
 License
 -------
