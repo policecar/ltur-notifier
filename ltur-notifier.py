@@ -8,6 +8,8 @@ import sys, re
 
 from config import *
 
+from IPython import embed
+
 #TODO: error handling
 # (1) if on_date - today > 7, inform user
 
@@ -19,8 +21,14 @@ def main():
 
 
 def submit_form():
-	br = mechanize.Browser()	# create browser instance
-	br.open( url )				# load page
+	br = mechanize.Browser()				# create browser instance
+	response = br.open( url )				# load page
+	# hack
+	rp_data = response.get_data()
+	rp_data = re.sub(r'<optgroup label=".+">', "", rp_data) # replace all optgroup elements
+	response.set_data( rp_data )
+	br.set_response( response )
+	# eohack
 	br.select_form( name='form_spar' )
 	
 	# fill in custom values
