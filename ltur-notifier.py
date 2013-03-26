@@ -8,8 +8,6 @@ import sys, re
 
 from config import *
 
-from IPython import embed
-
 #TODO: error handling
 # (1) if on_date - today > 7, inform user
 
