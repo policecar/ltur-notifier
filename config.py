@@ -1,11 +1,17 @@
 # -*- encoding: utf-8 *-*
 
+import datetime
+
 # customize traveling specs
 # mind that ltur offers bahn tickets only for the next 7 days starting from tomorrow
 from_city = 'Berlin Hbf'
 to_city = 'München Hbf'
-on_date = '21.01.2013'
-at_time = '21:12'
+
+# default to tomorrow
+on_date = ( datetime.date.today() + datetime.timedelta( days=1 )).strftime( '%d.%m.%Y' )
+#on_date = '21.01.2013'
+
+at_time = '09:12'
 max_price = 40.0
 
 # ltur's Bahn webpage
