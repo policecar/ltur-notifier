@@ -20,7 +20,7 @@ url = 'http://www.ltur.com/de/bahn.html?omnin=DB-DE'
 # keywords for webscraping
 TRIGGER = '\xe2\x82\xac'	# the euro sign
 IMPOSTOR = 'Sparangebote'
-DELIMITERS = 'label>|,00 \xe2\x82\xac'
+DELIMITERS = 'label>| \xe2\x82\xac'
 
 
 # Pushover config
