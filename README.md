@@ -4,6 +4,12 @@ ltur-notifier
 Receive a Pushover notification to your Android or iPhone 
 if bahn prices at ltur drop to the maximum you're willing to pay.
 
+Note
+-------
+
+This is work in progress which hasn't been tested in any thorough manner.  
+Developed using Python 2.7 on Mac OS X 10.6.
+
 Setup
 -------
 
