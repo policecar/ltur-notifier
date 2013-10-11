@@ -18,7 +18,7 @@ def main():
 		if MODE == 'pushover':
 			send_pushover( min( prices ))
 		elif MODE == 'email':
-			send_mail(min(prices))
+			send_mail( min( prices ))
 
 def submit_form():
 	br = mechanize.Browser()				# create browser instance
@@ -73,20 +73,20 @@ def send_pushover( cheapest ):
     conn.close()
 
 
-def send_mail(cheapest):
+def send_mail( cheapest ):
 	import smtplib
 	from email.mime.text import MIMEText
 
 	# Create a text/plain message
-	msg = MIMEText("Ltur notification. cheapest offer: %s €\n\n%s" % (str(cheapest), url))
-	msg['Subject'] = 'Ltur notifier: %s ' % str(cheapest)
+	msg = MIMEText( "Ltur notification. cheapest offer: %s €\n\n%s" % ( str( cheapest ), url ))
+	msg['Subject'] = 'Ltur notifier: %s ' % str( cheapest )
 	msg['From'] = FROM_EMAIL
 	msg['To'] = EMAIL
 
-	s = smtplib.SMTP(SMTP_SERVER)
+	s = smtplib.SMTP( SMTP_SERVER )
 	if SMTP_USER and SMTP_PASS:
-		s.login(SMTP_USER, SMTP_PASS)
-	s.sendmail(msg['From'], [msg['To']], msg.as_string())
+		s.login( SMTP_USER, SMTP_PASS )
+	s.sendmail( msg['From'], [msg['To']], msg.as_string() )
 	s.quit()
 
 
