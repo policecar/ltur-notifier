@@ -17,6 +17,10 @@ max_price = 40.0
 # ltur's Bahn webpage
 url = 'http://www.ltur.com/de/bahn.html?omnin=DB-DE'
 
+# set the mode of notification: pushover or email
+# MODE = 'pushover'
+MODE = 'email'
+
 # keywords for webscraping
 TRIGGER = '\xe2\x82\xac'	# the euro sign
 IMPOSTOR = 'Sparangebote'
@@ -26,6 +30,13 @@ DELIMITERS = 'label>| \xe2\x82\xac'
 # Pushover config
 APP_TOKEN   = 'EpMD3BrlmxioeKvGujVccccPqHeUxd'
 USER_TOKEN  = ''
+
+EMAIL = 'you@example.org'
+FROM_EMAIL = 'lturdaemon@example.org'
+SMTP_SERVER = 'smtp.example.org'
+SMTP_USER = 'lturdaemon@example.org'  # optional.
+SMTP_PASS = 'somesecretpassword'  # optional.
+
 
 PUSHOVER_URL = "api.pushover.net"
 PUSHOVER_PATH = "/1/messages.json"
