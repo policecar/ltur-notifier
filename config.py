@@ -30,13 +30,14 @@ DELIMITERS = 'label>| \xe2\x82\xac'
 # Pushover config
 APP_TOKEN   = 'EpMD3BrlmxioeKvGujVccccPqHeUxd'
 USER_TOKEN  = ''
+PUSHOVER_URL = "api.pushover.net"
+PUSHOVER_PATH = "/1/messages.json"
 
+
+# E-mail config
 EMAIL = 'you@example.org'
 FROM_EMAIL = 'lturdaemon@example.org'
 SMTP_SERVER = 'smtp.example.org'
-SMTP_USER = 'lturdaemon@example.org'  # optional.
-SMTP_PASS = 'somesecretpassword'  # optional.
+SMTP_USER = 'lturdaemon@example.org'  # optional
+SMTP_PASS = 'somesecretpassword'  # optional
 
-
-PUSHOVER_URL = "api.pushover.net"
-PUSHOVER_PATH = "/1/messages.json"
