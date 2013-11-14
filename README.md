@@ -6,8 +6,11 @@ if prices for train tickets at [l'tur](http://www.ltur.com/de/bahn.html?omnin=DB
 
 Note
 -------
+As of November 2013 ltur.com introduced a capture which I haven't dealt with. 
+Therefore for the time being this script will most likely not work anymore.
 
 Work in progress. Developed using Python 2.7 on Mac OS X 10.6.
+
 
 Setup
 -------
