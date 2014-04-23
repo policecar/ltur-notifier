@@ -1,7 +1,7 @@
 ltur-notifier
 ================
 
-A script that sends a [notification](https://pushover.net/) to your Android or iPhone 
+A script that sends a [Pushover](https://pushover.net/) notifiation or email to your Android fon or iPhone 
 if prices for train tickets at [l'tur](http://www.ltur.com/de/bahn.html?omnin=DB-DE) drop to the maximum you're willing to pay.
 
 Note
@@ -19,7 +19,7 @@ Install [mechanize](http://pypi.python.org/pypi/mechanize), e.g.
 
     $ easy_install mechanize
 
-Get your Pushover user token from https://pushover.net/ and enter it into config.py.  
+Enter your email specs into the config file or else get a Pushover user token from https://pushover.net/ and use that.  
 Specify your traveling data in config.py. Then set up a [cronjob](http://crontab.org/) for ltur-notifer.py
 
     $ crontab -e
