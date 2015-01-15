@@ -1,10 +1,13 @@
 #! /usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-# import BeautifulSoup
-import mechanize
-import httplib, urllib
-import sys, re
+import httplib
+import urllib
+import sys
+import re
+
+from mechanize import Browser
+from bs4 import BeautifulSoup
 
 from config import *
 
@@ -22,8 +25,8 @@ def main():
 
 
 def submit_form():
-    br = mechanize.Browser()  # create browser instance
-    response = br.open(url)  # load page
+    br = Browser()  # create browser instance
+    response = br.open(scraper_url)  # load page
 
     # hack
     rp_data = response.get_data()
@@ -32,35 +35,30 @@ def submit_form():
     br.set_response(response)
     # eohack
 
-    # TODO does not find form because it is dynamically loaded via ajax...
-    # as it seems, mechanize cannot handle dynamic content
-    # consider using Selenium instead?
-    # cf. http://stackoverflow.com/a/8455194
-
-    # hook directly into POST request sent by web form?
-    # http://bahn.ltur.com/ltb/search/external
-    # POSTing to that results in a redirect back to the original page...
-    # seems like encrypted content is sent over in order to authenticate against the service
-
-    br.select_form(name='form_spar')
+    br.select_form(name='form_spar_topz')
 
     # fill in custom values
-    br['trip_mode'] = ['trip_simple']  # alt: 'trip_both'
-    br['from_spar'] = from_city
+    br['from'] = from_city
     br['to_spar'] = to_city
-    br.form.find_control('start_datum').readonly = False
-    br['start_datum'] = on_date
-    br['start_time'] = at_time
+    br.form.find_control('fromDate').readonly = False
+    br['fromDate'] = on_date
+    br['fromTime'] = at_time
 
     return br.submit()
 
 
-def parse_page(haystack, needle):
-    heaps = haystack.split('<')
+def parse_page(haystack, needles):
+    bs = BeautifulSoup(haystack)
     gems = []
-    for heap in heaps:
-        if needle in heap and not IMPOSTOR in heap:
-            price = re.split(DELIMITERS, heap)[1]
+    price_tags = []
+    for needle in needles:
+        price_tags.extend(bs.find_all('td', attrs={'class': needle}))
+
+    for price_tag in price_tags:
+        price_string = price_tag.get_text().strip()
+        match = re.match(PRICE_TAG_REGEX, unicode(price_string))
+        if match:
+            price = match.group(1)
             price = re.sub(',', '.', price)
             gems.append(float(price))
     return gems
@@ -89,7 +87,7 @@ def send_mail(cheapest):
     from email.mime.text import MIMEText
 
     # Create a text/plain message
-    msg = MIMEText("Ltur notification. cheapest offer: %s €\n\n%s" % ( str(cheapest), url ))
+    msg = MIMEText("Ltur notification. cheapest offer: %s €\n\n%s" % ( str(cheapest), user_url ))
     msg['Subject'] = 'Ltur notifier: %s ' % str(cheapest)
     msg['From'] = FROM_EMAIL
     msg['To'] = EMAIL
