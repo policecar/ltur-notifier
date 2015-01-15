@@ -6,20 +6,26 @@ if prices for train tickets at [l'tur](http://www.ltur.com/de/bahn.html?omnin=DB
 
 Note
 -------
-As of November 2013 ltur.com introduced a capture which I haven't dealt with. 
-Therefore for the time being this script will most likely not work anymore.
+Work in progress. Developed using Python 2.7 on Mac OS X 10.6 and Ubuntu 14.04 LTS
 
-Work in progress. Developed using Python 2.7 on Mac OS X 10.6.
+This script is not being maintained and tested regularly. If it does not work properly anymore, please open an issue.
 
 
 Setup
 -------
 
-Install [mechanize](http://pypi.python.org/pypi/mechanize), e.g.
+Install dependencies [mechanize](http://pypi.python.org/pypi/mechanize) and [BeautifulSoup](https://pypi.python.org/pypi/beautifulsoup4/4.3.2):
+
+Using pip and the provided requirements.txt file:
+
+    $ pip install -r requirements.txt
+
+Alternatively, using easy_install:
 
     $ easy_install mechanize
+    $ easy_install BeautifulSoup4
 
-Enter your email specs into the config file or else get a Pushover user token from https://pushover.net/ and use that.  
+Enter your email specs into the config file or else get a Pushover user token from https://pushover.net/ and use that.
 Specify your traveling data in config.py. Then set up a [cronjob](http://crontab.org/) for ltur-notifer.py
 
     $ crontab -e
